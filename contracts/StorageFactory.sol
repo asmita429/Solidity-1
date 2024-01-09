@@ -4,6 +4,8 @@ pragma solidity >=0.6.12 <0.9.0;
 // either copy paste SimpleStorage.sol or import it. both will work 
 import"./SimpleStorage.sol";
 
+
+// deploying contract from within another contract
 contract StorageFactory{
     //creating a global variable of type SimpleStorage
     // SimpleStorage public simplestorage; 

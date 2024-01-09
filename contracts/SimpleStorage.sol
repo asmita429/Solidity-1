@@ -29,7 +29,7 @@ contract SimpleStorage{ //similar to class class_name
     People[] public people;
 
 
-    function Store(uint256 _favoriteNumber) public {
+    function Store(uint256 _favoriteNumber) public virtual {
         favoriteNumber = _favoriteNumber;
 // if we do more stuffs it is gonna cost more gas
         // favoriteNumber = favoriteNumber + 1;

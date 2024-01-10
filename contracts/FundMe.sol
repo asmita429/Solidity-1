@@ -13,6 +13,12 @@ contract FundMe{
 
     uint256 public minimumUSD = 50 * 1e18;
 
+    // creating array of funders
+    address[] public funders;
+
+    // mapping address to value or amount
+    mapping(address => uint256) public addressToAmountFunded;
+
     function fund() public payable {
         // want to be able to set a minimun fund amount in USD
         // how can we send ETH to this contract?
@@ -22,6 +28,10 @@ contract FundMe{
 
         // require(msg.value > minimumUSD, "Didn't send enough");
         require(getConversionRate(msg.value) >= minimumUSD, "didn't send enough");
+
+        // tracking funders with their address mapped with amount
+        funders.push(msg.sender);
+        addressToAmountFunded[msg.sender] = msg.value;
     }
 
     function getPrice() public view returns(uint256){
